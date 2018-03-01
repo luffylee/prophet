@@ -5,14 +5,19 @@ language: python
 python:
   - "2.7"
 
-before_install:
-  - docker build -t luffylee/machinelearning .
-  
+services:
+  - docker
+
+
 install:
   - echo "install nothing!" # put your normal pre-testing installs here
 
 script:
   - echo "no tests!" # put your normal testing scripts here
 
-services:
-  - docker
+after_success:
+  - docker --version  # document the version travis is using
+  - docker build -t my_example_app .
+  - docker tag my_example_app:latest luffylee/machinelearning:latest
+  - docker push luffylee/machinelearning:latest
+  
