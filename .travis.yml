@@ -5,6 +5,9 @@ language: python
 python:
   - "2.7"
 
+before_install:
+  - docker build -t luffylee/machinelearning .
+  
 install:
   - echo "install nothing!" # put your normal pre-testing installs here
 
