@@ -2,5 +2,14 @@ sudo: required
 
 language: python
 
+python:
+  - "2.7"
+
+install:
+  - echo "install nothing!" # put your normal pre-testing installs here
+
+script:
+  - echo "no tests!" # put your normal testing scripts here
+
 services:
   - docker
