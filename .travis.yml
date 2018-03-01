@@ -19,5 +19,6 @@ after_success:
   - docker --version  # document the version travis is using
   - docker build -t my_example_app .
   - docker tag my_example_app:latest luffylee/machinelearning:latest
+  - docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD";
   - docker push luffylee/machinelearning:latest
   
